@@ -64,16 +64,16 @@
 //     }, 1000);
 // }
 
-printNumbers (1, 10);
+// printNumbers (1, 10);
 
-function printNumbers(from, to) {
-    let current = from;
+// function printNumbers(from, to) {
+//     let current = from;
     
-    setTimeout(function f() {
-        alert(current);
-        if (current < to) {
-            setTimeout(f, 1000);
-        }
-        current++;
-    }, 1000);
-}
+//     setTimeout(function f() {
+//         alert(current);
+//         if (current < to) {
+//             setTimeout(f, 1000);
+//         }
+//         current++;
+//     }, 1000);
+// }
