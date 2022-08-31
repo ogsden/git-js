@@ -1,92 +1,5 @@
 'use strict'
 
-// Рекурсия и стек
-
-// function sumTo(n) {
-//     let sum = 0;
-//     for (let i = 0; i <= n; i++){
-//         sum += n;
-//         n--;
-//     }
-//     return sum;
-// }
-
-// alert(sumTo(1));
-
-// function sumTo(n) {
-//     if (n == 1) {
-//         return n;
-//     } else {
-//         return n + sumTo(n-1);
-//     }
-// }
-
-// alert (sumTo(2));
-
-// function sumTo(n) {
-//     return (n * (n + 1)) / 2;
-// }
-
-// alert (sumTo(1));
-
-
-// function factorial (n) {
-//     if (n == 1) return n;
-//     return n * factorial(n - 1);
-// }
-
-// alert (factorial(5));
-
-
-// function fib(n) {
-//     let arr = [0, 1];
-
-//     for (let i = 2; i <= n; i++) {
-//         let prev = arr[i - 1];
-//         let prev2 = arr[i - 2];
-//         arr.push(prev + prev2);
-//     }
-
-//     return arr[n];
-// }
-
-// alert(fib(3)); // 2
-// alert(fib(7)); // 13
-// alert(fib(77));
-
-
-// function printList (list) {
-//     alert(list.value); 
-
-//     if (list.next) {
-//       printList(list.next); 
-//     }
-// }
-
-// let list = {
-//     value: 1,
-//     next: {
-//       value: 2,
-//       next: {
-//         value: 3,
-//         next: {
-//           value: 4,
-//           next: null
-//         }
-//       }
-//     }
-//   };
-
-// printList(list);
-
-
-// function printList (list) {
-//     if (list.next) {
-//         printList(list.next);
-//     }
-//     alert (list.value);
-// }
-
 // Замыкание
 
 // function sum(a) {
@@ -135,7 +48,31 @@
 
 // Объект функции, NFE
 
+// function Constructor (name) {
+//   this.name = name;
+//   return {}
+// }
 
+// let a = new Constructor ('Vasya')
+// a.name;
+
+// function makeCounter() {
+//   let count = 0;
+
+// }
+
+// let counter = makeCounter();
+
+// alert( counter() ); // 0
+// alert( counter() ); // 1
+
+// counter.set(10); // установить новое значение счётчика
+
+// alert( counter() ); // 10
+
+// counter.decrease(); // уменьшить значение счётчика на 1
+
+// alert( counter() ); // 10 (вместо 11)
 
 // setTimeout и setInterval
 
@@ -144,7 +81,7 @@
 
 //     let timerId = setInterval(function () {
 //         alert(current);
-//         if (current == to) {
+//         if (current === to) {
 //             clearInterval(timerId);
 //         }
 //         current++;
@@ -164,3 +101,45 @@
 //         current++;
 //     }, 1000);
 // }
+
+
+// Декораторы и переадресация вызова
+
+// Привязка контекста к функции
+
+// function askPassword(ok, fail) {
+//     let password = prompt("Password?", '');
+//     if (password == "rockstar") ok();
+//     else fail();
+//   }
+  
+//   let user = {
+//     name: 'Вася',
+  
+//     loginOk() {
+//       alert(`${this.name} logged in`);
+//     },
+  
+//     loginFail() {
+//       alert(`${this.name} failed to log in`);
+//     },
+  
+//   };
+  
+//   askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+
+  // function askPassword(ok, fail) {
+  //   let password = prompt("Password?", '');
+  //   if (password == "rockstar") ok();
+  //   else fail();
+  // }
+  
+  // let user = {
+  //   name: 'John',
+  
+  //   login(result) {
+  //     alert( this.name + (result ? ' logged in' : ' failed to log in') );
+  //   }
+  // };
+  
+  // askPassword(user.login.bind(user, true), user.login.bind(user, false));
